@@ -1,10 +1,10 @@
-name: "Hello"
+name: Hello
 
 on:
   push:
 
 jobs:
-  python_hello:
+  python_function:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python 3.11
@@ -19,9 +19,12 @@ jobs:
               print("Hello Paweł")
           hello()' > hello.py
           python hello.py
+
       - name: Checkout code
         uses: actions/checkout@v3
-      - name: Install depencencies
+
+      - name: Install dependencies
         run: pip install -r requirements.txt
+
       - name: Run tests
         run: pytest tests/
